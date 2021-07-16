@@ -1,0 +1,31 @@
+﻿<Application x:Class="Projekt2._1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Projekt2._1"
+             xmlns:viewModel="clr-namespace:Projekt2._1.ViewModel"
+             xmlns:view="clr-namespace:Projekt2._1.MVVM.View"
+             StartupUri="Pages/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButton.xaml"/>
+                <ResourceDictionary Source="Theme/Textbox.xaml"/>
+                <ResourceDictionary Source="Theme/Button.xaml"/>
+                <ResourceDictionary Source="Theme/Tooltip.xaml"/>
+                <ResourceDictionary Source="Theme/Scrollbar.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:MoviesViewModel}">
+                <view:MoviesView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:MovieViewModel}">
+                <view:MovieView/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

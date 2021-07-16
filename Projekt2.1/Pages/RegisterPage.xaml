@@ -1,0 +1,255 @@
+﻿<Page x:Class="Projekt2._1.Pages.RegisterPage"
+        xmlns:ff="clr-namespace:FunctionalFun.UI"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projekt2._1.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegisterPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="logInButton"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                    Content="Zaloguj się"
+                    Width="100"
+                    Height="20" Click="logInButton_Click"/>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2"
+                    Width="140">
+            <Label Content="Dane osobowe" 
+                   Panel.ZIndex="1"
+                   Margin="-10"
+                   FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+            <Border BorderThickness="10"
+                    BorderBrush="AliceBlue"
+                    CornerRadius="8">
+                <StackPanel x:Name="ClientInfo">
+                <Label Content="Imię"
+                       FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+                    
+                <TextBox Text="{
+                    Binding FirstName,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged
+                    }"
+                         Width="100"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="20"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="Left"
+                     Margin="10"
+                         ToolTip="{Binding ErrorCollection[FirstName]}"
+                         TabIndex="3"/>
+                <Label Content="Nazwisko"
+                       FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+                    <TextBox Text="{
+                    Binding LastName,
+                    ValidatesOnDataErrors=True,
+                    UpdateSourceTrigger=PropertyChanged
+                    }"
+                             Width="100"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="20"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="Left"
+                     Margin="10"
+                         ToolTip="{Binding ErrorCollection[LastName]}"
+                         TabIndex="4"/>
+                </StackPanel>
+            </Border>
+            <Button x:Name="RegisterButton"
+                    Content="Załóż konto"
+                    Margin="15" Click="RegisterButton_Click"
+                    TabIndex="7"
+                   />
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Width="140">
+            <Label Content="Dane konta"
+                   Panel.ZIndex="1"
+                   Margin="-10"
+                   FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+            <Border BorderThickness="10"
+                    BorderBrush="AliceBlue"
+                    CornerRadius="8">
+                <StackPanel x:Name="UserInfo">
+                    <Label Content="Nazwa konta"
+                           FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+                    <TextBox Text="{
+                        Binding Login,
+                        ValidatesOnDataErrors=True,
+                        UpdateSourceTrigger=PropertyChanged
+                        }"
+                             Width="100"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="20"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="Left"
+                     Margin="10"
+                             ToolTip="{Binding ErrorCollection[Login]}"
+                             TabIndex="0"/>
+                    
+                    <Label Content="Hasło"
+                           FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+                    <PasswordBox x:Name="PasswordBox"
+                                 ff:PasswordBoxAssistant.BindPassword="True"
+                                 ff:PasswordBoxAssistant.BoundPassword="{
+                        Binding Password,
+                        ValidatesOnDataErrors=True,
+                        UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay
+                        }"
+                                 Width="100"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="20"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="Left"
+                     Margin="10"
+                                 ToolTip="{Binding ErrorCollection[Password]}"
+                                 TabIndex="1"/>        
+                    
+                    <Label Content="Powtórz hasło"
+                           FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+                    <PasswordBox x:Name="ReapetedPassword"
+                                 ff:PasswordBoxAssistant.BindPassword="True"
+                                 ff:PasswordBoxAssistant.BoundPassword="{
+                        Binding RepeatedPassword,
+                        ValidatesOnDataErrors=True,
+                        UpdateSourceTrigger=PropertyChanged,
+                        Mode=TwoWay
+                        }"
+                                 Width="100"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="20"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="Left"
+                     Margin="10"
+                                 ToolTip="{Binding ErrorCollection[RepeatedPassword]}"
+                                 TabIndex="2"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="3"
+                    Width="200">
+            <Label Content="Pytanie zabezpieczające" 
+                   Margin="-10"
+                   Panel.ZIndex="1"
+                   TabIndex="5"
+                   FontFamily="Helvetica"
+                       FontSize="20"
+                       FontWeight="Light"
+                       Foreground="White"
+                       Background="Transparent"/>
+            <Border BorderThickness="10"
+                    BorderBrush="AliceBlue"
+                    CornerRadius="8">
+                <StackPanel>
+                    <ComboBox Name="QuestionsComboBox"
+                        ItemsSource="{Binding Questions}"
+                              Text="{Binding ErrorCollection[Question]}"
+                              IsEditable="True"
+                              IsReadOnly="True"
+                                SelectionChanged="QuestionsComboBox_SelectionChanged"
+                              FontFamily="Helvetica"
+                                 FontWeight="Light"
+                                 FontSize="15"
+                                 HorizontalAlignment="Left"
+                                 Foreground="Black"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 HorizontalContentAlignment="Left"
+                                 Margin="10"
+                              >
+                        
+                    </ComboBox>
+                    <TextBox x:Name="Answer"
+                             Text="{Binding Answer,
+                                    ValidatesOnDataErrors=True,
+                                     UpdateSourceTrigger=PropertyChanged}"
+                             Width="100"
+                     FontFamily="Helvetica"
+                     FontWeight="Light"
+                     FontSize="20"
+                     HorizontalAlignment="Left"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     HorizontalContentAlignment="Left"
+                     Margin="10"
+                             TabIndex="6"
+                             ToolTip="{Binding ErrorCollection[Answer]}"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>
