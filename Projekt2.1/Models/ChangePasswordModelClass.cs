@@ -126,7 +126,7 @@ namespace Projekt2._1.Models
                 questionValid == null;
             return result;
         }
-        public bool ChangePassword()
+        public virtual bool ChangePassword()
         {
             if (this.IsValid())
             {

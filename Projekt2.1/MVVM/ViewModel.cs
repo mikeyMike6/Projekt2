@@ -1,5 +1,6 @@
 ﻿using Projekt2._1.HelperModels;
 using Projekt2._1.MVVM;
+using Projekt2._1.MVVM.View;
 using Projekt2._1.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace Projekt2._1.ViewModel
             });
             SettingsViewCommand = new RelayCommand(o =>
             {
+                SettingsVM.User = this.User;
                 CurrentView = SettingsVM;
             });
             MyMoviesViewCommand = new RelayCommand(o =>

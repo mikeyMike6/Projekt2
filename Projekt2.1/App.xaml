@@ -22,10 +22,11 @@
             <DataTemplate DataType="{x:Type viewModel:MoviesViewModel}">
                 <view:MoviesView/>
             </DataTemplate>
-            
-            <DataTemplate DataType="{x:Type viewModel:MovieViewModel}">
-                <view:MovieView/>
+
+            <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
+                <view:Settings/>
             </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

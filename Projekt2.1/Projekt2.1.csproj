@@ -80,7 +80,6 @@
     <Compile Include="HelperModels\RelayCommand.cs" />
     <Compile Include="MVVM\HomeViewModel.cs" />
     <Compile Include="MVVM\MoviesViewModel.cs" />
-    <Compile Include="MVVM\MovieViewModel.cs" />
     <Compile Include="MVVM\MyMoviesViewModel.cs" />
     <Compile Include="MVVM\SettingsViewModel.cs" />
     <Compile Include="MVVM\View\HomeView.xaml.cs">
@@ -88,9 +87,6 @@
     </Compile>
     <Compile Include="MVVM\View\MoviesView.xaml.cs">
       <DependentUpon>MoviesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MVVM\View\MovieView.xaml.cs">
-      <DependentUpon>MovieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\MyMoviesView.xaml.cs">
       <DependentUpon>MyMoviesView.xaml</DependentUpon>
@@ -109,10 +105,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\MoviesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MVVM\View\MovieView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

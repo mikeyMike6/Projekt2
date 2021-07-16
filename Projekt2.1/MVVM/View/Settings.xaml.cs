@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt2._1.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Projekt2._1.MVVM.View
         public Settings()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var tmp = (SettingsViewModel)this.DataContext;
+            if (tmp.ChangePassword()) MessageBox.Show("haslo zmienione");
         }
     }
 }

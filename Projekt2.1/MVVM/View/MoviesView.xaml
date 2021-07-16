@@ -20,8 +20,8 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <Border CornerRadius="10" BorderThickness="0">
-            <ListView x:Name="movieList" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border CornerRadius="10">
+            <ListView x:Name="movieList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseLeftButtonUp="movieList_PreviewMouseLeftButtonUp">
             <ListView.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="#f083da" Offset="1"/>
@@ -34,14 +34,13 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ListView.ItemTemplate >
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <Image Source="{Binding Poster}" Height="200" Width="200"
-                               HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill" />
-                            <RadioButton Command="{Binding MovieViewCommand}"/>
-                            <TextBlock Text="{Binding Title}" Style="{StaticResource ModernTextBlock}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
-                    </StackPanel>
-                </DataTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Image Source="{Binding Poster}" Height="200" Width="200"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill"/>
+                            <TextBlock Text="{Binding Title}" Style="{StaticResource ModernTextBlock}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                        </StackPanel>
+                    </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         </Border>

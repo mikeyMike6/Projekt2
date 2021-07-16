@@ -23,27 +23,8 @@ namespace Projekt2._1.ViewModel
 
         public MoviesViewModel()
         {
-
             var db = new DbCommands();
             this.movies = db.GetAllMovies();
-            MovieVM = new MovieViewModel();
-
-            MovieViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = MovieVM;
-            });
-        }
-        public RelayCommand MovieViewCommand { get; set; }
-        public MovieViewModel MovieVM { get; set; }
-        private object _currentView;
-        public object CurrentView
-        {
-            get { return _currentView; }
-            set
-            {
-                _currentView = value;
-                OnPropertyChanged();
-            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

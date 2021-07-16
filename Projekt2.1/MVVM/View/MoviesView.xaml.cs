@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekt2._1.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,10 +29,13 @@ namespace Projekt2._1.MVVM.View
             var db = new DbCommands();
             this.movieList.ItemsSource = db.GetAllMovies();
         }
-
-        private void movieList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void movieList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            
+            var movie = (Movies)this.movieList.SelectedItem;
+            if(movie != null)
+            {
+
+            }
         }
     }
 }
