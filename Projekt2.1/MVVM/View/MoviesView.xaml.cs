@@ -22,20 +22,29 @@ namespace Projekt2._1.MVVM.View
     /// </summary>
     public partial class MoviesView : UserControl
     {
+        public Movies SelectedMovie { get; set; }
         public MoviesView()
         {
             InitializeComponent();
 
-            var db = new DbCommands();
-            this.movieList.ItemsSource = db.GetAllMovies();
+            RefreshMovieList();
         }
         private void movieList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             var movie = (Movies)this.movieList.SelectedItem;
-            if(movie != null)
+            if(movie != null && movie.CanBeRent)
             {
 
+                var movieVM = (MoviesViewModel)this.DataContext;
+                var success = movieVM.RentMovie(movie.movieID);
+                if (success) MessageBox.Show("ok");
             }
+            RefreshMovieList();
+        }
+        private void RefreshMovieList()
+        {
+            var db = new DbCommands();
+            this.movieList.ItemsSource = db.GetAllMovies();
         }
     }
 }

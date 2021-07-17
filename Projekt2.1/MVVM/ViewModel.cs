@@ -38,6 +38,7 @@ namespace Projekt2._1.ViewModel
             });
             MoviesViewCommand = new RelayCommand(o =>
             {
+                MoviesVM.User = this.User;
                 CurrentView = MoviesVM;
             });
         }

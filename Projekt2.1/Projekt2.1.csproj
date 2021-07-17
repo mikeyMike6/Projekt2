@@ -77,8 +77,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DbModel\DiscDb.cs" />
     <Compile Include="HelperModels\RelayCommand.cs" />
     <Compile Include="MVVM\HomeViewModel.cs" />
+    <Compile Include="MVVM\INotifyOnPropertyChanged.cs" />
     <Compile Include="MVVM\MoviesViewModel.cs" />
     <Compile Include="MVVM\MyMoviesViewModel.cs" />
     <Compile Include="MVVM\SettingsViewModel.cs" />

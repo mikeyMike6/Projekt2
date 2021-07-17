@@ -13,7 +13,7 @@ namespace Projekt2._1.Models
     public class LoginModelClass : INotifyPropertyChanged, IDataErrorInfo
     {
         public Dictionary<string, string> ErrorCollection { get; private set; } = new Dictionary<string, string>();
-        private int userID;
+
         private string login;
         private string password;
         public virtual string Login

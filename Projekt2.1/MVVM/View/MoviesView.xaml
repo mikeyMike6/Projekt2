@@ -36,9 +36,21 @@
             <ListView.ItemTemplate >
                     <DataTemplate>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <Image Source="{Binding Poster}" Height="200" Width="200"
+                            <Image Source="{Binding Poster}" Height="190" Width="180"
                                    HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill"/>
-                            <TextBlock Text="{Binding Title}" Style="{StaticResource ModernTextBlock}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <DockPanel>
+                                <TextBlock Text="Liczba dostępnych kopii wynosi" Style="{StaticResource ModernTextBlock}" Margin="1" FontSize="15"/>
+                                <TextBlock Text="{Binding AvaibleDisc}" Style="{StaticResource ModernTextBlock}" Margin="1" FontSize="15"/>
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock Text="Liczba wszystkich kopii wynosi" Style="{StaticResource ModernTextBlock}" Margin="1" FontSize="12"/>
+                                <TextBlock Text="{Binding AllDisc}" Style="{StaticResource ModernTextBlock}" Margin="1" FontSize="9"/>
+                            </DockPanel>
+                            <TextBlock Text="{Binding Title}" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <TextBlock Text="{Binding Company}" Style="{StaticResource ModernTextBlock}" FontSize="10" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <TextBlock Text="{Binding Language}" Style="{StaticResource ModernTextBlock}" FontSize="10" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <TextBlock Text="{Binding Genre}" Style="{StaticResource ModernTextBlock}" FontSize="10" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <TextBlock Text="Wypożycz" Width="200" FontSize="20" HorizontalAlignment="Right" Foreground="Aqua" Visibility="{Binding Visiblity}" Margin="0"/>
                         </StackPanel>
                     </DataTemplate>
             </ListView.ItemTemplate>
