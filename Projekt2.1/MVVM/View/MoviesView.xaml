@@ -21,7 +21,8 @@
     </UserControl.Resources>
     <Grid>
         <Border CornerRadius="10">
-            <ListView x:Name="movieList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" PreviewMouseLeftButtonUp="movieList_PreviewMouseLeftButtonUp">
+            <ListView x:Name="movieList" HorizontalAlignment="Stretch" 
+                      ItemsSource="{Binding Movies}" VerticalAlignment="Stretch" PreviewMouseLeftButtonUp="movieList_PreviewMouseLeftButtonUp">
             <ListView.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="#f083da" Offset="1"/>

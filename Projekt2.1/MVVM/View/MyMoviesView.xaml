@@ -6,7 +6,55 @@
              xmlns:local="clr-namespace:Projekt2._1.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+
+        <Style x:Key="ModernTextBlock" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Helvetica" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20" />
+
+        </Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <Border CornerRadius="10">
+            <ListView x:Name="movieList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Movies}" PreviewMouseLeftButtonUp="movieList_PreviewMouseLeftButtonUp">
+                <ListView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#f083da" Offset="1"/>
+                        <GradientStop Color="#7be9f6" Offset="0.0"/>
+                    </LinearGradientBrush>
+                </ListView.Background>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5" HorizontalAlignment="Stretch"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Image Source="{Binding Poster}" Height="150" Width="130"
+                                   HorizontalAlignment="Stretch" VerticalAlignment="Top" Stretch="UniformToFill"/>
+                            <DockPanel>
+                                <TextBlock Text="ID nośnika:" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                                <TextBlock Text="{Binding DiscId}" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            </DockPanel>
+                            <TextBlock Text="{Binding Title}" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            <DockPanel>
+                                <TextBlock Text="Wypożyczona:" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                                <TextBlock Text="{Binding RentDataString}" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            </DockPanel>
+                            <DockPanel>
+                                <TextBlock Text="Zwrócona:" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                                <TextBlock Text="{Binding ReturnDataString}" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+                            </DockPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
     </Grid>
 </UserControl>

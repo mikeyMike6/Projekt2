@@ -168,5 +168,23 @@ namespace wpfNewUser.DatabaseOperation
 
             return db.ExecuteQuery(ConnectionString, command).ToList()[0].DiscId;
         }
+
+        public List<Movies> GetAllMoviesOfUserWithId(int clientId)
+        {
+            var command = "select p.id_plyty DiscId, f.id_filmu movieId, f.Tytul_filmu Title, " +
+                " pf.Plakat Poster, " +
+                " w.Data_wypozyczenia RentData, w.Data_zwrotu ReturnData from Klienci k " +
+                " join Wypozyczenia w on k.id_klienta=w.id_klienta " +
+                " join Plyty p on p.id_plyty=w.id_plyty " +
+                " join Filmy f on f.id_filmu=p.id_filmu " +
+                " join Szczegoly_Filmu sf on sf.id_filmu = f.id_filmu " +
+                " join PlakatyFilmowe pf on pf.id_filmu = f.id_filmu " +
+                " where w.id_klienta = @id";
+
+            var db = new DapperHelper<Movies>();
+            db.AddParameter("id", clientId.ToString());
+
+            return db.ExecuteQuery(ConnectionString, command).ToList();
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace Projekt2._1.ViewModel
 {
     public class Movies : INotifyPropertyChanged
     {
+        public int DiscId { get; set; }
         public int movieID { get; set; }
         public string Title { get; set; }
         public string Genre { get; set; }
@@ -74,6 +75,45 @@ namespace Projekt2._1.ViewModel
             {
                 if (CanBeRent) return "Visible";
                 return "Hidden";
+            }
+        }
+        private DateTime rentDate;
+        public DateTime RentData 
+        { 
+            get
+            {
+                return rentDate;
+            }
+            set
+            {
+                rentDate = value;
+            }
+        }
+        private DateTime returnData;
+        public DateTime ReturnData
+        {
+
+            get
+            {
+                return returnData;
+            }
+            set
+            {
+                returnData = value;
+            }
+        }
+        public string RentDataString 
+        {
+            get
+            {
+                return rentDate.ToString("d");
+            }
+        }
+        public string ReturnDataSting
+        {
+            get
+            {
+                return returnData.ToString("d");
             }
         }
     }

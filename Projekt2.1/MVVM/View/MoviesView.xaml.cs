@@ -1,4 +1,5 @@
-﻿using Projekt2._1.ViewModel;
+﻿using Projekt2._1.Pages;
+using Projekt2._1.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,10 +35,11 @@ namespace Projekt2._1.MVVM.View
             var movie = (Movies)this.movieList.SelectedItem;
             if(movie != null && movie.CanBeRent)
             {
+                var messageBoxResult = WpfMessageBox.Show("Chcesz wypożyczyć tytuł?", movie.Title, MessageBoxButton.YesNo);
 
+                if (messageBoxResult != MessageBoxResult.Yes) return;
                 var movieVM = (MoviesViewModel)this.DataContext;
                 var success = movieVM.RentMovie(movie.movieID);
-                if (success) MessageBox.Show("ok");
             }
             RefreshMovieList();
         }

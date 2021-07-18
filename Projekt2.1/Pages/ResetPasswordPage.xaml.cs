@@ -37,10 +37,10 @@ namespace Projekt2._1.Pages
         {
             if (changePasswordModel.ChangePassword())
             {
-                MessageBox.Show("Hasło zostało zmienione");
+                WpfMessageBox.Show("", "Hasło zostało zmienione", MessageBoxButton.OK);
                 this.NavigationService.Navigate(new LoginPage());
             }
-            else MessageBox.Show("Podano nieprawidłowe dane");
+            else WpfMessageBox.Show("", "Podano nieprawidłowe dane", MessageBoxButton.OK);
         }
     }
 }

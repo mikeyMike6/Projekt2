@@ -80,7 +80,6 @@
     <Compile Include="DbModel\DiscDb.cs" />
     <Compile Include="HelperModels\RelayCommand.cs" />
     <Compile Include="MVVM\HomeViewModel.cs" />
-    <Compile Include="MVVM\INotifyOnPropertyChanged.cs" />
     <Compile Include="MVVM\MoviesViewModel.cs" />
     <Compile Include="MVVM\MyMoviesViewModel.cs" />
     <Compile Include="MVVM\SettingsViewModel.cs" />
@@ -158,11 +157,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\WpfMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\Button.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Theme\MenuButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\MessageBoxButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +193,9 @@
     </Compile>
     <Compile Include="Pages\ResetPasswordPage.xaml.cs">
       <DependentUpon>ResetPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WpfMessageBox.xaml.cs">
+      <DependentUpon>WpfMessageBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
