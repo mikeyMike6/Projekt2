@@ -31,7 +31,25 @@ namespace Projekt2._1.MVVM.View
         }
         private void movieList_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            var disc = (Movies)this.movieList.SelectedItem;
+            if(disc != null)
+            {
+                var messageBoxResult = WpfMessageBox.Show("Chcesz zwrócić tytuł?", disc.Title, MessageBoxButton.YesNo);
 
+                if (messageBoxResult != MessageBoxResult.Yes) return;
+                var movieVM = (MyMoviesViewModel)this.DataContext;
+                movieVM.ReturnMovie(disc.DiscId);
+
+                RefreshMovies();
+            }
+        }
+
+        private void RefreshMovies()
+        {
+            var dc = (MyMoviesViewModel)this.DataContext;
+            var id = dc.User.UserID;
+            var db = new DbCommands();
+            this.movieList.ItemsSource = db.GetAllMoviesOfUserWithId(id);
         }
     }
 }

@@ -21,6 +21,7 @@
     </UserControl.Resources>
     <Grid>
         <Border CornerRadius="10">
+           
             <ListView x:Name="movieList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding Movies}" PreviewMouseLeftButtonUp="movieList_PreviewMouseLeftButtonUp">
                 <ListView.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
@@ -47,10 +48,7 @@
                                 <TextBlock Text="Wypożyczona:" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
                                 <TextBlock Text="{Binding RentDataString}" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
                             </DockPanel>
-                            <DockPanel>
-                                <TextBlock Text="Zwrócona:" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
-                                <TextBlock Text="{Binding ReturnDataString}" Foreground="AliceBlue" Style="{StaticResource ModernTextBlock}" Margin="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
-                            </DockPanel>
+                           
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

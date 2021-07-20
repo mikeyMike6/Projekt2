@@ -25,10 +25,22 @@ namespace Projekt2._1.ViewModel
         public List<Movies> Movies
         {
             get { return movies; }
-            set { movies = value; }
+            set 
+            { 
+                movies = value;
+                OnPropertyChanged("Movies");
+            }
         }
         public bool Return(int movieId)
         {
+            return false;
+        }
+
+        public bool ReturnMovie(int discId)
+        {
+            var db = new DbCommands();
+            if (db.ReturnDisc(discId))
+                return true;
             return false;
         }
 

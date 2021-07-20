@@ -26,7 +26,11 @@ namespace Projekt2._1.ViewModel
         public List<Movies> Movies
         {
             get { return movies; }
-            set { movies = value; }
+            set 
+            { 
+                movies = value;
+                OnPropertyChanged("Movies");
+            }
         }
         public bool RentMovie(int movieId)
         {
@@ -35,12 +39,8 @@ namespace Projekt2._1.ViewModel
             var success = db.RentMovie(discId, User.UserID);
             if (success)
             {
-                this.movies = db.GetAllMovies();
-                var movies = this.Movies.Where(x => x.movieID == movieId).ToList();
-                var movie = movies[0];
-                var index = Movies.IndexOf(movie);
-                Movies.RemoveAt(index);
-                OnPropertyChanged("Movies");
+                GetMovieList();
+
                 return true;
             }
             return false;
@@ -48,14 +48,19 @@ namespace Projekt2._1.ViewModel
 
         public MoviesViewModel()
         {
-            var db = new DbCommands();
-            this.movies = db.GetAllMovies();
+            GetMovieList();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public void GetMovieList()
+        {
+            var db = new DbCommands();
+            this.movies = db.GetAllMovies();
         }
     }
 }

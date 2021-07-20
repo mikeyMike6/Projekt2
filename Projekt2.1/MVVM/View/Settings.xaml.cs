@@ -1,4 +1,5 @@
-﻿using Projekt2._1.ViewModel;
+﻿using Projekt2._1.Pages;
+using Projekt2._1.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace Projekt2._1.MVVM.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var tmp = (SettingsViewModel)this.DataContext;
-            if (tmp.ChangePassword()) MessageBox.Show("haslo zmienione");
+            if (tmp.ChangePassword()) WpfMessageBox.Show("Hasło zostało zmienione");
         }
     }
 }

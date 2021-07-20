@@ -39,9 +39,10 @@ namespace Projekt2._1.MVVM.View
 
                 if (messageBoxResult != MessageBoxResult.Yes) return;
                 var movieVM = (MoviesViewModel)this.DataContext;
-                var success = movieVM.RentMovie(movie.movieID);
+                movieVM.RentMovie(movie.movieID);
+                
+                RefreshMovieList();
             }
-            RefreshMovieList();
         }
         private void RefreshMovieList()
         {

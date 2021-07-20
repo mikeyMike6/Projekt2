@@ -20,7 +20,6 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0" Content="Projekt 2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel x:Name="MenuPanel" Grid.Row="1" Grid.Column="0" Width="150">
             <RadioButton Content="Home" Style="{StaticResource MenuButtonTheme}" Command="{Binding HomeViewCommand}"/>
             <RadioButton Content="Filmy" Style="{StaticResource MenuButtonTheme}" Command="{Binding MoviesViewCommand}"/>
@@ -29,8 +28,6 @@
             <RadioButton Content="Wyloguj" Style="{StaticResource MenuButtonTheme}" Checked="RadioButton_Checked"/>
         </StackPanel>
         <DockPanel x:Name="UserInfo" Grid.Row="0" Grid.Column="1">
-            <Label Content="Witaj "/>
-            <Label Content="{Binding User.LoginName}"/>
             <TextBox Width="250" Height="40" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5" Grid.Column="1" Grid.Row="0"
                      Style="{StaticResource ModernTextbox}" Name="Szukaj"/>
         </DockPanel>

@@ -179,12 +179,22 @@ namespace wpfNewUser.DatabaseOperation
                 " join Filmy f on f.id_filmu=p.id_filmu " +
                 " join Szczegoly_Filmu sf on sf.id_filmu = f.id_filmu " +
                 " join PlakatyFilmowe pf on pf.id_filmu = f.id_filmu " +
-                " where w.id_klienta = @id";
+                " where w.id_klienta = @id and p.Status = 0 and w.Data_zwrotu IS NULL";
 
             var db = new DapperHelper<Movies>();
             db.AddParameter("id", clientId.ToString());
 
             return db.ExecuteQuery(ConnectionString, command).ToList();
+        }
+        public bool ReturnDisc(int discId)
+        {
+            var command = "update Wypozyczenia set Data_zwrotu = getdate() where id_plyty = @id";
+
+            var db = new DapperHelper<Movies>();
+            db.AddParameter("id", discId.ToString());
+            if (db.ExecuteNonQuery(ConnectionString, command) > 0) return true;
+            return false;
+            
         }
     }
 }
